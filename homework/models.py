@@ -13,14 +13,12 @@ class Product:
         self.description = description
         self.quantity = quantity
 
-
     def check_quantity(self, quantity) -> bool:
         """
         TODO Верните True если количество продукта больше или равно запрашиваемому
             и False в обратном случае
         """
         return self.quantity >= quantity
-
 
     def buy(self, quantity):
         """
@@ -32,8 +30,6 @@ class Product:
             self.quantity -= quantity
         else:
             raise ValueError('Not enough products available.')
-
-
 
     def __hash__(self):
         return hash(self.name + self.description)
@@ -82,21 +78,13 @@ class Cart:
              products_sum = products_sum + product.price * self.products[product]
         return products_sum
 
-
     def buy(self):
         """
         Метод покупки.
         Учтите, что товаров может не хватать на складе.
         В этом случае нужно выбросить исключение ValueError
         """
-        # for product in self.products:
-        #     product.quantity - self.products[product]
-        # self.clear()
-
         for product, quantity in self.products.items():
             product.buy(quantity)
         self.clear()
-
-
-            # raise ValueError('Not enough products available.')
 
