@@ -60,11 +60,7 @@ class TestCart:
     def test_product_add_to_cart(self, product):
         cart = Cart()
         value_to_add = 1
-
-        if product in cart.products:
-            initial_quantity = cart.products[product]
-        else:
-            initial_quantity = 0
+        initial_quantity = 0
 
         cart.add_product(product)
         assert cart.products[product] == initial_quantity + value_to_add
